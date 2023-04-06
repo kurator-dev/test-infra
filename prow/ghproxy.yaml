@@ -21,14 +21,17 @@ spec:
     spec:
       containers:
         - name: ghproxy
-          image: gcr.io/k8s-prow/ghproxy:v20210513-589f3cf5e2
+          image: gcr.io/k8s-prow/ghproxy:v20230313-23dc2a84f3
           args:
             - --cache-dir=/cache
             - --cache-sizeGB=10
             - --push-gateway=pushgateway
             - --serve-metrics=true
           ports:
-            - containerPort: 8888
+            - name: main
+              containerPort: 8888
+            - name: metrics
+              containerPort: 9090
           volumeMounts:
             - name: cache
               mountPath: /cache
@@ -42,7 +45,7 @@ spec:
       volumes:
         - name: cache
           persistentVolumeClaim:
-            claimName: ghproxy
+            claimName: cce-evs-ghproxy
 ---
 apiVersion: v1
 kind: Service
@@ -68,7 +71,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: ghproxy
-  name: ghproxy
+  name: cce-evs-ghproxy
   namespace: paas-prow
 spec:
   accessModes:
