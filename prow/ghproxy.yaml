@@ -45,7 +45,7 @@ spec:
       volumes:
         - name: cache
           persistentVolumeClaim:
-            claimName: ghproxy
+            claimName: cce-evs-ghproxy
 ---
 apiVersion: v1
 kind: Service
@@ -71,7 +71,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: ghproxy
-  name: ghproxy
+  name: cce-evs-ghproxy
   namespace: paas-prow
 spec:
   accessModes:
