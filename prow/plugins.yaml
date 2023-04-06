@@ -47,3 +47,4 @@ data:
       - name: cherrypicker
         events:
           - pull_request
+          - issue_comment
