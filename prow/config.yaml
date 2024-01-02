@@ -6,7 +6,7 @@ metadata:
 data:
   config.yaml: |
     prowjob_namespace: paas-prow
-    pod_namespace: test-pods
+    pod_namespace: paas-prow
     sinker:
       # how often the controller will perform a garbage
       #	collection. Defaults to one hour.

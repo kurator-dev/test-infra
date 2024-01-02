@@ -47,11 +47,10 @@ data:
       - name: cherrypicker
         events:
           - pull_request
-          - issue_comment
-
-label:
-  additional_labels:
-    # These labels are used to make Tide merge with a non-default merge method
-    - tide/merge-method-merge
-    - tide/merge-method-rebase
-    - tide/merge-method-squash
+              - issue_comment
+    label:
+      additional_labels:
+        # These labels are used to make Tide merge with a non-default merge method
+        - tide/merge-method-merge
+        - tide/merge-method-rebase
+        - tide/merge-method-squash
